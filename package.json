@@ -1,0 +1,16 @@
+{
+  "name": "chapter1",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "(https://eduardosantos.dev)",
+  "license": "MIT",
+  "scripts": {
+    "start": "babel-node ./src/index.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.17",
+    "@babel/node": "^7.12.17",
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/preset-env": "^7.12.17"
+  }
+}
