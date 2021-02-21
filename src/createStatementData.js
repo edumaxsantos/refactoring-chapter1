@@ -42,11 +42,7 @@ class PerformanceCalculator {
 
     switch (this.play.type) {
       case "tragedy":
-        result = 40000;
-        if (this.performance.audience > 30) {
-          result += 1000 * (this.performance.audience - 30);
-        }
-        break;
+        throw "bad thing";
       case "comedy":
         result = 30000;
         if (this.performance.audience > 20) {
@@ -83,6 +79,14 @@ function createPerformanceCalculator(aPerformance, aPlay) {
   }
 }
 
-class TragedyCalculator extends PerformanceCalculator {}
+class TragedyCalculator extends PerformanceCalculator {
+  get amount() {
+    let result = 40000;
+    if (this.performance.audience > 30) {
+      result += 1000 * (this.performance.audience - 30);
+    }
+    return result;
+  }
+}
 
 class ComedyCalculator extends PerformanceCalculator {}
