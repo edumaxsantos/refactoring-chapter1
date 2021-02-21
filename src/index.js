@@ -7,6 +7,19 @@ console.log(plays); */
 console.log(statement(invoices[0], plays));
 
 function statement(invoice, plays) {
+  let result = `Statement for ${invoice.customer}\n`;
+
+  for (let perf of invoice.performances) {
+    // exibe a linha para esta requisição
+    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${
+      perf.audience
+    } seats)\n`;
+  }
+
+  result += `Amount owed is ${usd(totalAmount())}\n`;
+  result += `You earned ${totalVolumeCredits()} credits`;
+  return result;
+
   function playFor(aPerformance) {
     return plays[aPerformance.playID];
   }
@@ -67,17 +80,4 @@ function statement(invoice, plays) {
     }
     return result;
   }
-
-  let result = `Statement for ${invoice.customer}\n`;
-
-  for (let perf of invoice.performances) {
-    // exibe a linha para esta requisição
-    result += ` ${playFor(perf).name}: ${usd(amountFor(perf))} (${
-      perf.audience
-    } seats)\n`;
-  }
-
-  result += `Amount owed is ${usd(totalAmount())}\n`;
-  result += `You earned ${totalVolumeCredits()} credits`;
-  return result;
 }
