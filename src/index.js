@@ -60,8 +60,6 @@ function statement(invoice, plays) {
     return volumeCredits;
   }
 
-  let totalAmount = 0;
-
   let result = `Statement for ${invoice.customer}\n`;
 
   for (let perf of invoice.performances) {
@@ -71,6 +69,7 @@ function statement(invoice, plays) {
     } seats)\n`;
   }
 
+  let totalAmount = 0;
   for (let perf of invoice.performances) {
     totalAmount += amountFor(perf);
   }
